@@ -8,8 +8,6 @@
     <link class="bi bi-window" rel="icon" href="../img/window.svg">
     <title>Ask me, Bruh</title>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-
-
 </head>
 
 
@@ -44,54 +42,80 @@
     </nav>
 
     <main class="container mb-3">
-        <div class="d-flex gap-3 mt-3 align-items-center">
-            <h2>Log In</h2>
+        <div class="d-flex gap-3 align-items-center mt-3">
+            <h1>Registration</h1>
         </div>
 
-        <div class="row">
+        <div class="row mt-2">
             <div class="col-9">
-                <p style="color: rgb(198, 0, 0);">Sorry, wrong password!</p>
-                    
-                
-                <div class="row mt-2">
-                    <div class="col-2 mb-3">
-                        <h4>Login: </h4>
-                    </div>
-                    <div class="col-4">
-                        <input class="form-control" type="text" aria-label="default input example">
-                    </div>
-
-                </div>
-                <div class="row mb-4">
-                    <div class="col-2">
-                        <h4>Password: </h4>
-                    </div>
-                    <div class="col-4">
-                        <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                    </div>
-
-                </div>
-                <div class="row mb-5">
-                    <div class="col-2">
-                        
-                    </div>
-                    <div class="col-2">
-                        <button class="btn btn-outline-warning">Log in, Bruh</button>
-                    </div>
-
-                </div>
+                <p style="color: rgb(198, 0, 0);">Sorry, the email address is already registered!</p>
                 <div class="row">
-                    <div class="col-2">
-                        
-                    </div>
-                    <div class="col-4">
-                        <a href="./register.html">create new account</a>
-                    </div>
+                    <div class="col-9">
+                        <div class="row mt-2">
+                            <div class="col-2 mb-3">
+                                <h5>Login: </h5>
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" value="my_login"
+                                    aria-label="Disabled input example">
+                            </div>
+                        </div>
+                        <!-- Cho_Za_Bred_To -->
+                        <div class="row mt-2">
+                            <div class="col-2 mb-3">
+                                <h5>Email: </h5>
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" value="myemail@meow.com"
+                                    aria-label="Disabled input example">
+                            </div>
+                        </div>
 
+                        <div class="row mt-2">
+                            <div class="col-2 mb-3">
+                                <h5>NickName: </h5>
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" value="Cho_Za_Bred_To"
+                                    aria-label="Disabled input example">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4 mt-4">
+                            <div class="col-2">
+                                <h5>Password: </h5>
+                            </div>
+                            <div class="col-4">
+                                <input type="password" id="inputPassword6" value="fdfdfbdfbdfbd" class="form-control"
+                                    aria-describedby="passwordHelpInline">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4 mt-4">
+                            <div class="col-2">
+                                <h5>Repeat password: </h5>
+                            </div>
+                            <div class="col-4">
+                                <input type="password" id="inputPassword6" value="fdfdfbdfbdfbd" class="form-control"
+                                    aria-describedby="passwordHelpInline">
+                            </div>
+                        </div>
+
+                        <div class="row mt-2">
+                            <div class="col-2 mb-3">
+                                <h5>Upload avatar: </h5>
+                            </div>
+                            <div class="col-4">
+                                <div class="mb-3 mt-2">
+                                    <input class="form-control" type="file" id="formFile">
+                                </div>
+                                <button class="btn btn-outline-primary">Register</button>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-
-
             <div class="col-3 mb-3">
                 <section class="mb-3">
                     <h2>Popular Tags</h2>
@@ -118,6 +142,7 @@
                 </section>
             </div>
         </div>
+
     </main>
 
     <script src="../static/js/bootstrap.min.js"></script>
