@@ -1,18 +1,14 @@
-{% extends 'layouts/base.html' %}
 {% load static %}
 
-{% block content %}
-
-<div class="d-flex gap-3 align-items-center mt-3">
-    <h1>New Questions</h1>
-    <a href="{% url 'hot' %}" class="">Hot Questions</a>
+<div class="d-flex gap-3 align-items-center mt-3 mb-3">
+    <h1>Tag: {{ tag }} </h1>
 </div>
 
 <div class="row">
     <div class="col-9">
         <div class="d-flex flex-column gap-3">
             {% for question in questions %}
-                {% include 'layouts/quest_card.html' %}
+            {% include 'layouts/quest_card.html' %}
             {% endfor %}
         </div>
     </div>
@@ -23,5 +19,3 @@
 <div class="mt-2">
     {% include 'layouts/pagination.html' %}
 </div>
-
-{% endblock %}
