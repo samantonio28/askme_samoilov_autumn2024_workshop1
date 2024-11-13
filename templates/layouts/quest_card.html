@@ -12,7 +12,8 @@
             </div>
             <div class="col-10">
                 <h5 class="card-title">
-                    <a href="question/{{ question.id }}">{{ question.title }}</a>
+                    <!-- <a href="question/{{ question.id }}">{{ question.title }}</a> -->
+                    <a href="{% url 'one_question' question.id %}">{{ question.title }}</a>
                 </h5>
                 <p class="card-text">
                     {{ question.text }}

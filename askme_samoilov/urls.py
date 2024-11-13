@@ -30,3 +30,5 @@ urlpatterns = [
     path('ask/', views.ask_question, name="ask"),
     path('admin/', admin.site.urls),
 ]
+
+# вынести все пути в app.urls.py
