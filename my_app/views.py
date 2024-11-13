@@ -93,7 +93,6 @@ def question(request, question_id):
         }
     )
 
-
 def tag(request, tag_name):
     if tag_name not in TAGS:
         return not_found(request)
