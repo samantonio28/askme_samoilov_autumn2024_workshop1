@@ -1,132 +1,67 @@
-<!doctype html>
-<html lang="en">
+{% extends 'layouts/base.html' %}
+{% load static %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link class="bi bi-window" rel="icon" href="../img/window.svg">
-    <title>Ask me, Bruh</title>
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-</head>
+{% block content %}
 
 
+<div class="d-flex gap-3 align-items-center mt-3">
+    <h1>Settings: Cho_Za_Bred_To</h1>
+</div>
 
-<body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="./index.html">Ask me, Bruh</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success me-2" type="submit">Search</button>
-                </form>
-                <div></div>
-            </div>
-            <nav class="navbar bg-body-tertiary">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="./settings.html">
-                        <img src="../img/avatar.svg" alt="Logo" width="45" class="img-thumbnail">
-                        Cho_Za_Bred_To
-                    </a>
-                    <a class="nav-link d-flex me-3" href="./settings.html">Settings</a>
-                    <a class="nav-link " href="./login.html">Log out</a>
-                </div>
-            </nav>
-        </div>
-    </nav>
-
-    <main class="container mb-3">
-        <div class="d-flex gap-3 align-items-center mt-3">
-            <h1>Settings: Cho_Za_Bred_To</h1>
-        </div>
-
-        <div class="row mt-2">
+<div class="row mt-2">
+    <div class="col-9">
+        <div class="row">
             <div class="col-9">
-                <div class="row">
-                    <div class="col-9">
-                        <div class="row mt-2">
-                            <div class="col-2 mb-3">
-                                <h5>Login: </h5>
-                            </div>
-                            <div class="col-4">
-                                <input class="form-control" type="text" value="my_login"
-                                    aria-label="Disabled input example" disabled readonly>
-                            </div>
-                        </div>
-                        <!-- Cho_Za_Bred_To -->
-                        <div class="row mt-2">
-                            <div class="col-2 mb-3">
-                                <h5>Email: </h5>
-                            </div>
-                            <div class="col-4">
-                                <input class="form-control" type="text" value="myemail@meow.com"
-                                    aria-label="Disabled input example" disabled readonly>
-                            </div>
-                        </div>
-
-                        <div class="row mt-2">
-                            <div class="col-2 mb-3">
-                                <h5>NickName: </h5>
-                            </div>
-                            <div class="col-4">
-                                <input class="form-control" type="text" value="Cho_Za_Bred_To"
-                                    aria-label="Disabled input example" disabled readonly>
-                            </div>
-                        </div>
-
-                        <div class="row mt-2">
-                            <div class="col-2 mb-3">
-                                <h5>Upload avatar: </h5>
-                            </div>
-                            <div class="col-4">
-                                <img src="../img/avatar.svg" class="img-thumbnail" alt="Avatar">
-                                <div class="mb-3 mt-2">
-                                    <input class="form-control" type="file" id="formFile">
-                                </div>
-                                <button class="btn btn-outline-success">Save</button>
-                            </div>
-                        </div>
-
-
+                <div class="row mt-2">
+                    <div class="col-2 mb-3">
+                        <h5>Login: </h5>
+                    </div>
+                    <div class="col-4">
+                        <input class="form-control" type="text" value="my_login" aria-label="Disabled input example"
+                            disabled readonly>
                     </div>
                 </div>
-            </div>
-            <div class="col-3 mb-3">
-                <section class="mb-3">
-                    <h2>Popular Tags</h2>
-                    <div>
-                        <button type="button" class="me-2 mb-2 btn btn-primary">Coding</button>
-                        <button type="button" class="me-2 mb-2 btn btn-secondary">C++</button>
-                        <button type="button" class="me-2 mb-2 btn btn-success">Work while sleeping</button>
-                        <button type="button" class="me-2 mb-2 btn btn-info">Interesting facts</button>
-                        <button type="button" class="me-2 mb-2 btn btn-light">How to eat faster</button>
-                        <button type="button" class="me-2 mb-2 btn btn-dark">Python</button>
+                <!-- Cho_Za_Bred_To -->
+                <div class="row mt-2">
+                    <div class="col-2 mb-3">
+                        <h5>Email: </h5>
                     </div>
-                </section>
-                <section>
-                    <h2>Best members</h2>
-                    <div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><a href="#">Pchelyonok</a></li>
-                            <li class="list-group-item"><a href="#">Luntik</a></li>
-                            <li class="list-group-item"><a href="#">Roman_off</a></li>
-                            <li class="list-group-item"><a href="#">Vupsen</a></li>
-                            <li class="list-group-item"><a href="#">Poop_SEN</a></li>
-                        </ul>
+                    <div class="col-4">
+                        <input class="form-control" type="text" value="myemail@meow.com"
+                            aria-label="Disabled input example" disabled readonly>
                     </div>
-                </section>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-2 mb-3">
+                        <h5>NickName: </h5>
+                    </div>
+                    <div class="col-4">
+                        <input class="form-control" type="text" value="Cho_Za_Bred_To"
+                            aria-label="Disabled input example" disabled readonly>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-2 mb-3">
+                        <h5>Upload avatar: </h5>
+                    </div>
+                    <div class="col-4">
+                        <img src="../img/avatar.svg" class="img-thumbnail" alt="Avatar">
+                        <div class="mb-3 mt-2">
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <button class="btn btn-outline-success">Save</button>
+                    </div>
+                </div>
+
+
             </div>
         </div>
-        
-    </main>
+    </div>
+    {% include 'layouts/tags_members.html' %}
+</div>
 
-    <script src="../static/js/bootstrap.min.js"></script>
-</body>
 
-</html>
+
+{% endblock %}

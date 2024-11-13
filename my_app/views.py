@@ -43,6 +43,7 @@ def index(request):
         }
     )
 
+
 def login(request):
     return render(
         request,
@@ -51,6 +52,7 @@ def login(request):
             "tag_names": TAGS.keys()
         }
     )
+
 
 def hot(request):
     hot_questions = copy.deepcopy(QUESTIONS)
@@ -64,10 +66,11 @@ def hot(request):
         template_name="hot.html",
         context={
             "questions": page.object_list,
-            "page_obj": page, 
+            "page_obj": page,
             "tag_names": TAGS.keys()
         }
     )
+
 
 def not_found(request):
     return render(
@@ -75,24 +78,26 @@ def not_found(request):
         "not_found.html"
     )
 
+
 def question(request, question_id):
     if question_id not in range(1, len(QUESTIONS) + 1):
         return not_found(request)
-    
+
     one_question = QUESTIONS[question_id - 1]
     return render(
         request,
         template_name="question.html",
         context={
-            'question': one_question, 
-            "tag_names": TAGS.keys()   
+            'question': one_question,
+            "tag_names": TAGS.keys()
         }
     )
+
 
 def tag(request, tag_name):
     if tag_name not in TAGS:
         return not_found(request)
-        
+
     tag = TAGS[tag_name]
     questions_for_tag = QUESTIONS[:tag[2]]
     return render(
@@ -105,11 +110,32 @@ def tag(request, tag_name):
         }
     )
 
+
 def signup(request):
     return render(
-        request, 
+        request,
         template_name="signup.html",
         context={
             "tag_names": TAGS.keys(),
+        }
+    )
+
+
+def ask_question(request):
+    return render(
+        request,
+        template_name="ask.html",
+        context={
+            "tag_names": TAGS.keys()
+        }
+    )
+
+
+def settings(request):
+    return render(
+        request,
+        template_name="settings.html",
+        context={
+            "tag_names": TAGS.keys()
         }
     )
