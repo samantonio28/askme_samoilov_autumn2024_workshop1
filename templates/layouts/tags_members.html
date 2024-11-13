@@ -3,8 +3,7 @@
         <h2>Popular Tags</h2>
         <div>
             {% for tag_name in tag_names %}
-            <!-- <button type="button" class="me-2 mb-2 btn btn-primary" href="{% url 'tag' tag_name %}">{{tag_name}}</button> -->
-            <a class="me-2 mb-2 btn btn-primary" href="{% url 'tag' tag_name %}" role="button">{{tag_name}}</a>
+                <a class="me-2 mb-2 btn btn-primary" href="{% url 'tag' tag_name %}" role="button">{{tag_name}}</a>
             {% endfor %}
         </div>
     </section>
@@ -21,9 +20,3 @@
         </div>
     </section>
 </div>
-
-<!-- <button type="button" class="me-2 mb-2 btn btn-secondary" href="tag/{{ tag_name }}">C++</button>
-    <button type="button" class="me-2 mb-2 btn btn-success" href="tag/{{ tag_name }}">Work while sleeping</button>
-    <button type="button" class="me-2 mb-2 btn btn-info" href="tag/{{ tag_name }}">Interesting facts</button>
-    <button type="button" class="me-2 mb-2 btn btn-light" href="tag/{{ tag_name }}">How to eat faster</button>
-    <button type="button" class="me-2 mb-2 btn btn-dark" href="tag/{{ tag_name }}">Python</button> -->
