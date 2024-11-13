@@ -38,7 +38,8 @@ def index(request):
         template_name="index.html",
         context={
             "questions": page.object_list,
-            'page_obj': page
+            'page_obj': page,
+            "tag_names": TAGS.keys()
         }
     )
 
@@ -46,28 +47,45 @@ def index(request):
 def hot(request):
     hot_questions = copy.deepcopy(QUESTIONS)
     hot_questions.reverse()
+    page_num = int(request.GET.get('page', 1))
 
+    paginator = Paginator(hot_questions, 5)
+    page = paginator.page(page_num)
     return render(
         request,
         template_name="hot.html",
         context={
-            "questions": hot_questions
+            "questions": page.object_list,
+            "page_obj": page, 
+            "tag_names": TAGS.keys()
         }
     )
 
 
 def question(request, question_id):
+    if question_id not in range(1, len(QUESTIONS) + 1):
+        return render(request, template_name="not_found.html")
+    
     one_question = QUESTIONS[question_id - 1]
     return render(
         request,
         template_name="question.html",
         context={
-            'question': one_question
+            'question': one_question, 
+            "tag_names": TAGS.keys()   
         }
     )
 
+def not_found(request):
+    return render(
+        request,
+        "not_found.html"
+    )
 
 def tag(request, tag_name):
+    if tag_name not in TAGS:
+        return render(request, template_name="not_found.html")
+        
     tag = TAGS[tag_name]
     questions_for_tag = QUESTIONS[:tag[2]]
     return render(
@@ -76,5 +94,6 @@ def tag(request, tag_name):
         context={
             "questions": questions_for_tag,
             "tag": tag[0],
+            "tag_names": TAGS.keys(),
         }
     )
