@@ -9,8 +9,11 @@ class Tag(models.Model):
     name = models.CharField(max_length=50, unique=True)
     
 class TagManager(models.Manager):
-    def names(self):
+    def get_names(self):
         return self.all()
+
+    def filter_by_name(self, name):
+        return self.filter(name__iexact=name)
 
 class QuestionManager(models.Manager):
     def hot_questions(self):
@@ -23,7 +26,8 @@ class Question(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-
+    is_active = models.BooleanField(default=True)
+    like_count = models.IntegerField(default=0)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag, blank=True)
     objects = QuestionManager()
@@ -37,7 +41,6 @@ class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
 
     is_active = models.BooleanField(default=True)
-
 
 class QuestionLike(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

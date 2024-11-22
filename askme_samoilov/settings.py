@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-!ate7tq!nzm%z+#^c98rht$=gjag_pl9363bzj-w-(vdjw9_#h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1:5432']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'askme_samoilov.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'myproject',
-        'USER': 'myprojectuser',
-        'PASSWORD': 'password',
+        'NAME': 'django',
+        'USER': 'django_admin',
+        'PASSWORD': 'new_pass',
         'HOST': 'localhost',
         'PORT': '5432',
     }

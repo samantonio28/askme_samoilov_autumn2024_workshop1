@@ -30,7 +30,7 @@ TAGS = {
 
 def index(request):
     questions = Question.objects.new_questions()
-    tag_names = Tag.objects.names()
+    tag_names = Tag.objects.all().values_list('name', flat=True)
     
     page = paginate(questions, request, 5)
     return render(
@@ -44,7 +44,7 @@ def index(request):
     )
 
 def login(request):
-    tag_names = Tag.objects.names()
+    tag_names = Tag.objects.all().values_list('name', flat=True)
     return render(
         request,
         template_name="login.html",
@@ -56,7 +56,7 @@ def login(request):
 def hot(request):
     hot_questions = Question.objects.hot_questions()
     page = paginate(hot_questions, request, 5)
-    tag_names = Tag.objects.names()
+    tag_names = Tag.objects.all().values_list('name', flat=True)
     return render(
         request,
         template_name="hot.html",
@@ -76,19 +76,21 @@ def not_found(request):
 
 
 def question(request, question_id):
-    if question_id not in range(1, len(QUESTIONS) + 1):
+    try:
+        question = Question.objects.get(id=question_id)
+    except Question.DoesNotExist:
         return not_found(request)
 
-    tag_names = Tag.objects.names()
-    one_question = QUESTIONS[question_id - 1]
+    tag_names = Tag.objects.all().values_list('name', flat=True)
     return render(
         request,
         template_name="question.html",
         context={
-            'question': one_question,
+            'question': question,
             "tag_names": tag_names
         }
     )
+
 
 def tag(request, tag_name):
     if tag_name not in TAGS:
@@ -96,8 +98,8 @@ def tag(request, tag_name):
 
     tag = TAGS[tag_name]
     questions_for_tag = QUESTIONS[:tag[2]]
-    page = paginate(Tag.objects.names(), request, 5)
-    tag_names = Tag.objects.names()
+    tag_names = Tag.objects.all().values_list('name', flat=True)
+    page = paginate(tag_names, request, 5)
     return render(
         request,
         template_name="tag.html",
@@ -110,7 +112,7 @@ def tag(request, tag_name):
     )
 
 def signup(request):
-    tag_names = Tag.objects.names()
+    tag_names = Tag.objects.all().values_list('name', flat=True)
     return render(
         request,
         template_name="signup.html",
@@ -121,7 +123,7 @@ def signup(request):
 
 
 def ask_question(request):
-    tag_names = Tag.objects.names()
+    tag_names = Tag.objects.all().values_list('name', flat=True)
     return render(
         request,
         template_name="ask.html",
@@ -132,7 +134,7 @@ def ask_question(request):
 
 
 def settings(request):
-    tag_names = Tag.objects.names()
+    tag_names = Tag.objects.all().values_list('name', flat=True)
     return render(
         request,
         template_name="settings.html",
