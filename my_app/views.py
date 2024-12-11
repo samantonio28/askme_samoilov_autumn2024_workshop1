@@ -9,25 +9,6 @@ def paginate(objects_list, request, per_page=10):
     page = paginator.page(page_num)
     return page
 
-QUESTIONS = [
-    {
-        'title': f"title {i}",
-        'id': i,
-        'text': f"text {i}"
-    } for i in range(1, 31)
-]
-
-# 'id': 0, # 'questions_amount': 4
-TAGS = {
-    'coding':               ['Coding', 0, 4],
-    'c++':                  ['C++', 1, 5],
-    'work_while_sleeping':  ['Work while sleeping', 2, 3],
-    'interesting_facts':    ['Interesting facts', 3, 6],
-    'how_to_eat_faster':    ['How to eat faster', 4, 2],
-    'python':               ['Python', 5, 7]
-}
-
-
 def index(request):
     questions = Question.objects.new_questions()
     tag_names = Tag.objects.all().values_list('name', flat=True)
